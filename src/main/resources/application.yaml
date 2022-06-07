@@ -1,0 +1,17 @@
+
+server:
+  port: 8881
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id : r1
+          uri : http://127.0.0.1:9089
+          predicates :
+            - Path= /persons/**
+            
+        - id : r2
+          uri : http://127.0.0.1:8085
+          predicates :
+            - Path= /cat/**
